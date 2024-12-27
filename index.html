@@ -3,38 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>四愿辰定 </title>
+  <title>四愿辰定</title>
   <style>
+    /* 全局样式 */
     body {
       font-family: Arial, sans-serif;
       background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
     }
+
+    /* 页头样式 */
     header {
       background-color: #333;
       padding: 20px;
       color: white;
       text-align: center;
+      animation: fadeIn 2s;
     }
+
+    /* 内容区样式 */
     .container {
       max-width: 960px;
-      margin: 0 auto;
+      margin: 20px auto;
       padding: 20px;
       background-color: white;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
     }
+
     h1 {
       font-size: 32px;
       margin-top: 0;
     }
+
+    h2 {
+      font-size: 28px;
+      color: #333;
+      text-align: center;
+    }
+
     p {
       font-size: 18px;
       line-height: 1.5;
+      color: #555;
     }
+
+    /* 动态图片效果 */
+    #gameImage {
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
+      display: block;
+      transition: transform 1s ease;
+    }
+
+    #gameImage:hover {
+      transform: scale(1.05);
+    }
+
+    /* 页脚样式 */
     footer {
       background-color: #333;
       padding: 10px;
       color: white;
       text-align: center;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      animation: fadeIn 2s;
+    }
+
+    /* 链接样式 */
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* 按钮样式 */
+    button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    /* 表单样式 */
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    /* 星级评分样式 */
+    .rating {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .star {
+      font-size: 30px;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .star:hover,
+    .star.selected {
+      color: #f1c40f;
+    }
+
+    /* 动画效果 */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -42,47 +144,87 @@
   <header>
     <h1>四愿辰定</h1>
   </header>
-  
+
   <div class="container">
     <h2>游戏介绍</h2>
-    <p>
-      欢迎来到@四愿辰定
-    </p>
+    <p>欢迎来到@四愿辰定</p>
     <p>
       在四愿辰定工作室中，你将体验到无与伦比的冒险与探索。探寻神秘的地下城、击败强大的怪物、获得宝藏和装备，培养自己的角色成为最强者。
     </p>
     <p>
       本网站目前处于测试阶段，我们正在不断改进和扩展游戏内容。请随时返回以获取最新的更新和功能。
     </p>
-    <p>  <a href="https://www.bilibili.com/">访问b站</a> </p><hr/>
-    <p>  <a href="https://space.bilibili.com/1885055813?spm_id_from=333.337.search-card.all.click">访问ik染安</a></p><hr/>
-  
-  
-  </div> 
-  </body>
 
- 
-</body>
+    <!-- 动态图片切换 -->
+    <img id="gameImage" src="https://via.placeholder.com/500" alt="游戏展示图">
+    <button onclick="changeImage()">切换游戏图片</button>
+
+    <hr/>
+
+    <!-- 用户表单 -->
+    <h3>提交反馈</h3>
+    <form id="feedbackForm">
+      <input type="text" id="username" placeholder="请输入您的用户名" required>
+      <textarea id="feedback" rows="4" placeholder="请输入您的反馈" required></textarea>
+      <button type="submit">提交反馈</button>
+    </form>
+
+    <hr/>
+
+    <!-- 星级评分 -->
+    <h3>给我们打分</h3>
+    <div class="rating" id="rating">
+      <span class="star" data-value="1">★</span>
+      <span class="star" data-value="2">★</span>
+      <span class="star" data-value="3">★</span>
+      <span class="star" data-value="4">★</span>
+      <span class="star" data-value="5">★</span>
+    </div>
+
+    <hr/>
+    <p><a href="https://www.bilibili.com/" target="_blank" title="访问B站">访问B站</a></p>
+    <p><a href="https://space.bilibili.com/1885055813?spm_id_from=333.337.search-card.all.click" target="_blank" title="访问IK染安">访问IK染安</a></p>
+  </div>
+
   <footer>
     &copy; 2023 四愿辰定. All rights reserved.
   </footer>
-  <body>
-    <!-- 创建一个链接到目标网页的可点击文本 -->
-    <a href="target-page.html">版权声明</a>
-  
-    <!-- 创建一个按钮，点击后触发事件 -->
-    <button id="myButton">点击</button>
-  
-    <script>
-      // 获取按钮元素
-      var button = document.getElementById('myButton');
-  
-      // 添加事件监听器，定义点击按钮时触发的事件
-      button.addEventListener('click', function() {
-          
-        // 在这里编写你想执行的代码
-        alert('此网站由@四愿辰定—工作室开发，用于介绍游戏和收集用户的使用感受，与开发者联系不得侵权 ');
+
+  <script>
+    // 动态图片切换
+    let currentImageIndex = 0;
+    const images = [
+      'https://via.placeholder.com/500/ff7f7f',
+      'https://via.placeholder.com/500/7fffd4',
+      'https://via.placeholder.com/500/ffcc00'
+    ];
+
+    function changeImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      document.getElementById('gameImage').src = images[currentImageIndex];
+    }
+
+    // 表单提交
+    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('感谢您的反馈！');
+    });
+
+    // 星级评分功能
+    const stars = document.querySelectorAll('.star');
+    stars.forEach(star => {
+      star.addEventListener('click', function() {
+        const ratingValue = this.getAttribute('data-value');
+        stars.forEach(s => {
+          if (s.getAttribute('data-value') <= ratingValue) {
+            s.classList.add('selected');
+          } else {
+            s.classList.remove('selected');
+          }
+        });
+        alert('您给出了' + ratingValue + '星评分');
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
