@@ -2,26 +2,24 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>四愿辰定</title>
   <style>
     /* 全局样式 */
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: #f7f7f7;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
       margin: 0;
       padding: 0;
-      color: #333;
     }
 
     /* 页头样式 */
     header {
-      background-color: #1d1d1f;
+      background-color: #333;
       padding: 20px;
       color: white;
       text-align: center;
-      border-bottom: 1px solid #ddd;
-      animation: fadeIn 2s;
+      animation: fadeIn 1s ease-out;
     }
 
     h1 {
@@ -33,103 +31,180 @@
     .container {
       max-width: 960px;
       margin: 20px auto;
-      padding: 30px;
+      padding: 20px;
       background-color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-      animation: fadeIn 2s;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      animation: slideIn 0.5s ease-out;
     }
 
     h2 {
       font-size: 28px;
       color: #333;
       text-align: center;
-      margin-top: 0;
     }
 
     p {
-      font-size: 16px;
-      line-height: 1.8;
+      font-size: 18px;
+      line-height: 1.5;
       color: #555;
+      text-align: justify;
     }
 
-    /* 按钮样式 */
     button {
-      background-color: #007aff;
+      background-color: #333;
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 12px 20px;
       cursor: pointer;
       font-size: 16px;
-      border-radius: 8px;
+      border-radius: 5px;
+      margin-top: 10px;
       transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #0051a8;
+      background-color: #555;
     }
 
-    /* 留言区样式 */
-    .comments-section {
-      margin-top: 30px;
-      border-top: 1px solid #ddd;
-      padding-top: 20px;
-      overflow-y: auto;
-      max-height: 400px;
+    /* 星级评分样式 */
+    .rating {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
     }
 
-    .comment {
-      background-color: #f2f2f7;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
+    .star {
+      font-size: 30px;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s ease;
     }
 
-    .comment:hover {
-      background-color: #e0e0e3;
+    .star:hover,
+    .star.selected {
+      color: #f1c40f;
     }
 
-    .comment p {
-      font-size: 16px;
-      margin: 0;
-    }
-
-    .comment .username {
-      font-weight: bold;
-      color: #007aff;
-    }
-
-    .comment .timestamp {
-      font-size: 12px;
-      color: #999;
-      margin-top: 5px;
-    }
-
-    /* 输入框样式 */
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      transition: border-color 0.3s ease;
-    }
-
-    input:focus, textarea:focus {
-      border-color: #007aff;
-      outline: none;
-    }
-
-    /* 动画效果 */
+    /* 动态效果 */
     @keyframes fadeIn {
       from {
         opacity: 0;
       }
       to {
         opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* 样式调整：小屏幕（手机） */
+    @media only screen and (max-width: 767px) {
+      header {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .container {
+        margin: 10px;
+        padding: 15px;
+        box-shadow: none;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 10px 16px;
+      }
+
+      .rating {
+        font-size: 24px;
+      }
+
+      #commentsSection {
+        margin-top: 10px;
+      }
+
+      .comment {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .star {
+        font-size: 25px;
+      }
+    }
+
+    /* 样式调整：平板设备 */
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      button {
+        padding: 12px 18px;
+      }
+
+      .rating {
+        font-size: 28px;
+      }
+    }
+
+    /* 样式调整：大屏幕 */
+    @media only screen and (min-width: 1025px) {
+      .container {
+        max-width: 960px;
+        margin: 40px auto;
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      button {
+        padding: 14px 24px;
+        font-size: 18px;
       }
     }
   </style>
@@ -143,12 +218,13 @@
     <h2>游戏介绍</h2>
     <p>欢迎来到@四愿辰定</p>
     <p>
-      在四愿辰定工作室，我们致力于为您提供最好的娱乐体验。我们的目标是通过不断的改进，让您感受到最流畅和愉快的使用体验。
+      在四愿辰定工作室，我们正在开发一款全新的游戏，敬请期待更多的精彩内容和功能。
+    </p>
+    <p>
+      本网站目前处于测试阶段，我们正在不断改进和扩展游戏内容。请随时返回以获取最新的更新和功能。（点击下方反馈提交）
     </p>
 
-    <hr/>
-
-    <!-- 用户反馈 -->
+    <!-- 用户表单 -->
     <h3>提交反馈</h3>
     <form id="feedbackForm">
       <input type="text" id="username" placeholder="请输入您的用户名" required>
@@ -158,26 +234,31 @@
 
     <hr/>
 
-    <!-- 在线投票功能 -->
-    <h3>在线投票</h3>
-    <div class="vote-container">
-      <button class="vote-button" onclick="submitVote('支持')">支持</button>
-      <button class="vote-button" onclick="submitVote('反对')">反对</button>
+    <!-- 星级评分 -->
+    <h3>给我们打分</h3>
+    <div class="rating" id="rating">
+      <span class="star" data-value="1">★</span>
+      <span class="star" data-value="2">★</span>
+      <span class="star" data-value="3">★</span>
+      <span class="star" data-value="4">★</span>
+      <span class="star" data-value="5">★</span>
     </div>
-    
+
     <hr/>
     
-    <!-- 留言功能 -->
-    <h3>留言区</h3>
-    <form id="commentForm">
-      <input type="text" id="commentUsername" placeholder="输入您的用户名" required>
-      <textarea id="commentText" placeholder="输入留言内容" required></textarea>
-      <button type="submit">提交留言</button>
-    </form>
-
-    <div class="comments-section" id="commentsSection">
-      <!-- 留言将会显示在这里 -->
+    <!-- 留言板 -->
+    <h3>留言板</h3>
+    <div id="commentsSection"></div>
+    
+    <div class="commentForm">
+      <input type="text" id="commentUsername" placeholder="请输入您的用户名" required>
+      <textarea id="commentText" rows="4" placeholder="请输入留言" required></textarea>
+      <button id="commentSubmit">提交留言</button>
     </div>
+
+    <hr/>
+    <p><a href="https://www.bilibili.com/" target="_blank" title="访问B站"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Bilibili_logo_2020.svg" alt="B站" style="width: 30px; height: auto; margin-right: 10px;">访问B站</a></p>
+    <p><a href="https://space.bilibili.com/1885055813?spm_id_from=333.337.search-card.all.click" target="_blank" title="访问IK染安"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Bilibili_Logo_2017.png" alt="IK染安" style="width: 30px; height: auto; margin-right: 10px;">访问IK染安</a></p>
   </div>
 
   <footer>
@@ -185,46 +266,49 @@
   </footer>
 
   <script>
-    // 留言功能
-    document.getElementById('commentForm').addEventListener('submit', function(event) {
+    // 表单提交
+    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
       event.preventDefault();
-
-      const username = document.getElementById('commentUsername').value;
-      const commentText = document.getElementById('commentText').value;
-
-      if (username && commentText) {
-        const commentSection = document.getElementById('commentsSection');
-
-        // 创建新留言
-        const commentDiv = document.createElement('div');
-        commentDiv.classList.add('comment');
-
-        // 显示留言内容
-        commentDiv.innerHTML = `
-          <p class="username">${username}</p>
-          <p>${commentText}</p>
-          <p class="timestamp">${new Date().toLocaleString()}</p>
-        `;
-
-        // 将留言添加到页面
-        commentSection.appendChild(commentDiv);
-
-        // 清空输入框
-        document.getElementById('commentUsername').value = '';
-        document.getElementById('commentText').value = '';
-      }
+      alert('感谢您的反馈！');
     });
 
-    // 在线投票功能
-    let voteCount = { '支持': 0, '反对': 0 };
+    // 星级评分功能
+    const stars = document.querySelectorAll('.star');
+    stars.forEach(star => {
+      star.addEventListener('click', function() {
+        const ratingValue = this.getAttribute('data-value');
+        stars.forEach(s => {
+          if (s.getAttribute('data-value') <= ratingValue) {
+            s.classList.add('selected');
+          } else {
+            s.classList.remove('selected');
+          }
+        });
+        alert('您给出了' + ratingValue + '星评分');
+      });
+    });
 
-    function submitVote(option) {
-      voteCount[option]++;
-      alert(`您投了${option}票！`);
+    // 留言板功能
+    const commentSubmit = document.getElementById('commentSubmit');
+    const commentsSection = document.getElementById('commentsSection');
+    const commentUsername = document.getElementById('commentUsername');
+    const commentText = document.getElementById('commentText');
 
-      // 这里可以加入显示投票统计的功能
-      console.log(voteCount);
-    }
+    commentSubmit.addEventListener('click', function() {
+      const username = commentUsername.value;
+      const text = commentText.value;
+
+      if (username && text) {
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add('comment');
+        commentDiv.innerHTML = `<strong>${username}</strong>: <p>${text}</p>`;
+        commentsSection.appendChild(commentDiv);
+        commentUsername.value = '';
+        commentText.value = '';
+      } else {
+        alert('请填写完整留言内容');
+      }
+    });
   </script>
 </body>
 </html>
