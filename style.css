@@ -9,14 +9,12 @@ body {
 
 /* 页头样式 */
 header {
-  background-color: #007aff; /* 苹果风格的蓝色 */
-  padding: 20px;
+  background: linear-gradient(90deg, #007aff, #0051a8); /* 蓝色渐变 */
+  padding: 20px 10px;
   color: white;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  border-radius: 8px; /* 圆角设计 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
 }
 
 header h1 {
@@ -78,13 +76,14 @@ button {
   padding: 12px 20px;
   cursor: pointer;
   font-size: 16px;
-  border-radius: 8px;
+  border-radius: 8px; /* 圆角 */
   transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加按钮阴影 */
 }
 
 button:hover {
   background-color: #0051a8;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 悬停时增加阴影 */
 }
 
 /* 星级评分样式 */
@@ -129,4 +128,21 @@ footer {
   color: #666;
   margin-top: 20px;
   border-top: 1px solid #ddd;
+}
+
+/* 响应式适配 */
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  input, textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
 }
