@@ -7,126 +7,128 @@
   <style>
     /* 全局样式 */
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fc;
       margin: 0;
       padding: 0;
+      color: #333;
     }
 
     /* 页头样式 */
     header {
-      background-color: #333;
-      padding: 20px;
+      background-color: #2c3e50;
+      padding: 30px 0;
       color: white;
       text-align: center;
+      font-size: 36px;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       animation: fadeIn 2s;
     }
 
     /* 内容区样式 */
     .container {
-      max-width: 960px;
-      margin: 20px auto;
-      padding: 20px;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
       background-color: white;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin-top: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      font-size: 18px;
+      line-height: 1.6;
     }
 
     h2 {
       font-size: 28px;
-      color: #333;
-      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 22px;
+      color: #34495e;
+      margin-top: 30px;
+      margin-bottom: 15px;
     }
 
     p {
-      font-size: 18px;
-      line-height: 1.5;
       color: #555;
-    }
-
-    /* 动态图片效果 */
-    #gameImage {
-      width: 100%;
-      max-width: 500px;
-      margin: 20px auto;
-      display: block;
-      transition: transform 1s ease;
-    }
-
-    #gameImage:hover {
-      transform: scale(1.05);
-    }
-
-    /* 页脚样式 */
-    footer {
-      background-color: #333;
-      padding: 10px;
-      color: white;
-      text-align: center;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-      animation: fadeIn 2s;
-    }
-
-    /* 链接样式 */
-    a {
-      color: #1a73e8;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* 按钮样式 */
-    button {
-      background-color: #333;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 5px;
-      margin-top: 10px;
-    }
-
-    button:hover {
-      background-color: #555;
+      margin-bottom: 20px;
     }
 
     /* 表单样式 */
     input, textarea {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      border-radius: 8px;
+      border: 1px solid #ddd;
       font-size: 16px;
+      background-color: #fafafa;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    /* 提交按钮样式 */
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 8px;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
     }
 
     /* 星级评分样式 */
     .rating {
       display: flex;
       justify-content: center;
-      margin: 20px 0;
+      margin-top: 20px;
+      margin-bottom: 30px;
     }
 
     .star {
       font-size: 30px;
       color: #ccc;
       cursor: pointer;
-      transition: color 0.2s;
+      transition: color 0.3s;
     }
 
     .star:hover,
     .star.selected {
-      color: #f1c40f;
+      color: #f39c12;
+    }
+
+    /* 页脚样式 */
+    footer {
+      background-color: #2c3e50;
+      padding: 15px;
+      color: white;
+      text-align: center;
+      font-size: 14px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    footer a {
+      color: #ecf0f1;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     /* 动画效果 */
@@ -142,26 +144,22 @@
 </head>
 <body>
   <header>
-    <h1>四愿辰定</h1>
+    四愿辰定
   </header>
 
   <div class="container">
     <h2>游戏介绍</h2>
     <p>欢迎来到@四愿辰定</p>
     <p>
-      在四愿辰定工作室…………
+      在四愿辰定工作室，我们专注于为玩家提供全新的沉浸式游戏体验。
     </p>
     <p>
       本网站目前处于测试阶段，我们正在不断改进和扩展游戏内容。请随时返回以获取最新的更新和功能。（点击下方反馈提交）
     </p>
 
-    <!-- 动态图片切换 -->
-    <img id="gameImage" src="https://via.placeholder.com/500" alt="游戏展示图">
-    <button onclick="changeImage()">切换游戏图片</button>
-
     <hr/>
 
-    <!-- 用户表单 -->
+    <!-- 用户反馈表单 -->
     <h3>提交反馈</h3>
     <form id="feedbackForm">
       <input type="text" id="username" placeholder="请输入您的用户名" required>
@@ -191,19 +189,6 @@
   </footer>
 
   <script>
-    // 动态图片切换
-    let currentImageIndex = 0;
-    const images = [
-      'https://via.placeholder.com/500/ff7f7f',
-      'https://via.placeholder.com/500/7fffd4',
-      'https://via.placeholder.com/500/ffcc00'
-    ];
-
-    function changeImage() {
-      currentImageIndex = (currentImageIndex + 1) % images.length;
-      document.getElementById('gameImage').src = images[currentImageIndex];
-    }
-
     // 表单提交
     document.getElementById('feedbackForm').addEventListener('submit', function(event) {
       event.preventDefault();
