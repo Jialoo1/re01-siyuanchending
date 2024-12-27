@@ -129,6 +129,41 @@
       color: #007aff;
     }
 
+    /* 投票样式 */
+    .poll {
+      background-color: #f0f8ff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+    }
+
+    .poll h3 {
+      font-size: 24px;
+      color: #007aff;
+      margin-bottom: 20px;
+    }
+
+    .poll-option {
+      padding: 10px 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      margin: 10px 0;
+      transition: background-color 0.3s ease;
+    }
+
+    .poll-option:hover {
+      background-color: #e1f4ff;
+    }
+
+    .poll-option.selected {
+      background-color: #007aff;
+      color: white;
+    }
+
     /* 页脚样式 */
     footer {
       background-color: #f1f1f1;
@@ -206,6 +241,18 @@
     </div>
 
     <hr/>
+
+    <!-- 在线投票 -->
+    <div class="poll">
+      <h3>你最喜欢的游戏类型是什么？</h3>
+      <div class="poll-option" data-option="1">动作冒险</div>
+      <div class="poll-option" data-option="2">角色扮演</div>
+      <div class="poll-option" data-option="3">策略游戏</div>
+      <div class="poll-option" data-option="4">竞速游戏</div>
+      <button id="voteSubmit" style="margin-top: 20px; padding: 12px 24px; background-color: #007aff; color: white; border: none; border-radius: 12px;">提交投票</button>
+    </div>
+
+    <hr/>
     <p><a href="https://www.bilibili.com/" target="_blank" title="访问B站">访问B站</a></p>
     <p><a href="https://space.bilibili.com/1885055813?spm_id_from=333.337.search-card.all.click" target="_blank" title="访问IK染安">访问IK染安</a></p>
   </div>
@@ -235,6 +282,29 @@
         });
         alert('您给出了' + ratingValue + '星评分');
       });
+    });
+
+    // 投票功能
+    const pollOptions = document.querySelectorAll('.poll-option');
+    let selectedOption = null;
+
+    pollOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        // 清除之前的选中状态
+        pollOptions.forEach(opt => opt.classList.remove('selected'));
+        // 设置当前选中的选项
+        this.classList.add('selected');
+        selectedOption = this.getAttribute('data-option');
+      });
+    });
+
+    // 提交投票
+    document.getElementById('voteSubmit').addEventListener('click', function() {
+      if (selectedOption) {
+        alert('感谢您的投票！您选择了选项：' + selectedOption);
+      } else {
+        alert('请先选择一个选项！');
+      }
     });
   </script>
 </body>
