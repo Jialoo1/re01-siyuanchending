@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>四愿辰定</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- 引入 Font Awesome 图标库 -->
   <style>
     /* 全局样式 */
     body {
@@ -181,11 +182,24 @@
       color: #007aff;
       text-decoration: none;
       transition: color 0.3s ease;
+      font-size: 24px;
+      margin: 0 10px;
     }
 
     footer a:hover {
       text-decoration: underline;
       color: #0051a8;
+    }
+
+    /* 图标样式 */
+    .icon-link {
+      font-size: 30px;
+      margin: 0 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .icon-link:hover {
+      transform: scale(1.2);
     }
 
     /* 动画效果 */
@@ -244,68 +258,17 @@
 
     <!-- 在线投票 -->
     <div class="poll">
-      <h3>你最喜欢的游戏类型是什么？</h3>
-      <div class="poll-option" data-option="1">动作冒险</div>
-      <div class="poll-option" data-option="2">角色扮演</div>
-      <div class="poll-option" data-option="3">策略游戏</div>
+      <h3>空白投票等待管理员添加（无功能）</h3>
+      <div class="poll-option" data-option="1">2022</div>
+      <div class="poll-option" data-option="2">2023</div>
+      <div class="poll-option" data-option="3">2025</div>
       <div class="poll-option" data-option="4">竞速游戏</div>
       <button id="voteSubmit" style="margin-top: 20px; padding: 12px 24px; background-color: #007aff; color: white; border: none; border-radius: 12px;">提交投票</button>
     </div>
 
     <hr/>
-    <p><a href="https://www.bilibili.com/" target="_blank" title="访问B站">访问B站</a></p>
-    <p><a href="https://space.bilibili.com/1885055813?spm_id_from=333.337.search-card.all.click" target="_blank" title="访问IK染安">访问IK染安</a></p>
-  </div>
-
-  <footer>
-    &copy; 2025 四愿辰定. All rights reserved.
-  </footer>
-
-  <script>
-    // 表单提交
-    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      alert('感谢您的反馈！');
-    });
-
-    // 星级评分功能
-    const stars = document.querySelectorAll('.star');
-    stars.forEach(star => {
-      star.addEventListener('click', function() {
-        const ratingValue = this.getAttribute('data-value');
-        stars.forEach(s => {
-          if (s.getAttribute('data-value') <= ratingValue) {
-            s.classList.add('selected');
-          } else {
-            s.classList.remove('selected');
-          }
-        });
-        alert('您给出了' + ratingValue + '星评分');
-      });
-    });
-
-    // 投票功能
-    const pollOptions = document.querySelectorAll('.poll-option');
-    let selectedOption = null;
-
-    pollOptions.forEach(option => {
-      option.addEventListener('click', function() {
-        // 清除之前的选中状态
-        pollOptions.forEach(opt => opt.classList.remove('selected'));
-        // 设置当前选中的选项
-        this.classList.add('selected');
-        selectedOption = this.getAttribute('data-option');
-      });
-    });
-
-    // 提交投票
-    document.getElementById('voteSubmit').addEventListener('click', function() {
-      if (selectedOption) {
-        alert('感谢您的投票！您选择了选项：' + selectedOption);
-      } else {
-        alert('请先选择一个选项！');
-      }
-    });
-  </script>
-</body>
-</html>
+    <div class="fadeIn">
+      <!-- 图标超链接 -->
+      <footer>
+        <a href="https://www.bilibili.com/" target="_blank" class="icon-link" title="访问B站">
+          <i class="fab fa-bilibili"></i> <!--
