@@ -1,9 +1,0 @@
-re01-siyuanchending/
-│
-├── index.html       # 主 HTML 文件
-├── css/
-│   └── style.css    # 存储样式文件
-├── js/
-│   └── script.js    # 存储 JavaScript 文件
-└── images/
-    └── logo.png     # 存储图片文件（可选）
